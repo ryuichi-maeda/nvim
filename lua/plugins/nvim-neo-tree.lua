@@ -14,14 +14,6 @@ return {
         window = {
             width = 25,
         },
-        git_status = {
-            symbols = {
-                --added = "",
-                --modified = "M",
-                --deleted = "x",
-                --renamed = "R",
-            },
-        },
         filesystem = {
             filtered_items = {
                 hide_dotfiles = false,
@@ -33,6 +25,10 @@ return {
                     ".gitignore",
                 },
             },
+            follow_current_file = {
+                enabled = true,
+            },
+            use_libuv_file_watcher = true,
         },
     },
 }
