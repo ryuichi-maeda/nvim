@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
         options = {
-            theme = "nightfox",
+            theme = "vscode",
             globalstatus = true,
         },
     },
