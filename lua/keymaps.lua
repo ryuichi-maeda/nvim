@@ -54,7 +54,7 @@ keymap("n", "<leader>fh", ":Telescope help_tags<Return>", opts)
 
 -- Neo tree
 keymap("n", "<leader>nt", ":Neotree toggle<Return>", opts)
-keymap("n", "<leader>nr", ":Neotree focus<Return><C-r>", opts)
+keymap("n", "<leader>nr", ":Neotree focus<Return>:execute 'normal R'<Return>", opts)
 
 -- Gitsigns
 keymap('n', '<leader>hs', ':Gitsigns stage_hunk<Return>', opts)
