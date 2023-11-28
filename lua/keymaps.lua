@@ -45,6 +45,9 @@ keymap("n", "<Esc><Esc>", ":nohlsearch<Return>", opts)
 -- Terminal mode
 keymap("n", "tt", ":belowright 10new<Return>:terminal<Return>", opts)
 
+-- Grep
+keymap("n", "gw", "*", opts)
+
 -- Plugins --
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<Return>", opts)
