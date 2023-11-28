@@ -1,5 +1,5 @@
 -- Create/get autocommand group
-local augroup = vim.api.nvim_create_augroup
+-- local augroup = vim.api.nvim_create_augroup
 -- Create autocommand
 local autocmd = vim.api.nvim_create_autocmd
 
