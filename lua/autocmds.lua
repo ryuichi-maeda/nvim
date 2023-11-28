@@ -3,10 +3,14 @@ local augroup = vim.api.nvim_create_augroup
 -- Create autocommand
 local autocmd = vim.api.nvim_create_autocmd
 
--- Remove whitespace on save
+-- On save
 autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
+	pattern = "*",
+	callback = function(args)
+		-- Format --
+		require("conform").format({ bufnr = args.buf })
+		--[[
+        -- Remove whitespace on save --
         local lines = vim.api.nvim_buf_get_lines(0, -2, -1, false)
         local last_line = lines[1]
 
@@ -17,23 +21,24 @@ autocmd("BufWritePre", {
 
         -- If there are only empty lines, delete all but one
         vim.cmd("%s/^\\s\\+$//e")
-    end
+]]
+		--
+	end,
 })
 
 -- Terminal mode
 autocmd("TermOpen", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("startinsert")
-        -- vim.opt.startinsert = true
-        vim.opt_local.relativenumber = false
-        vim.opt_local.number = false
-    end
+	pattern = "*",
+	callback = function()
+		vim.cmd("startinsert")
+		-- vim.opt.startinsert = true
+		vim.opt_local.relativenumber = false
+		vim.opt_local.number = false
+	end,
 })
 
 -- Don't auto commenting new lines
 autocmd("BufEnter", {
-    pattern = "*",
-    command = "set fo-=c fo-=r fo-=o",
+	pattern = "*",
+	command = "set fo-=c fo-=r fo-=o",
 })
-
