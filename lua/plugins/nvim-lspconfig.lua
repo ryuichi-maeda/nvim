@@ -6,6 +6,7 @@ return {
 	},
 	opts = {
 		servers = {
+			ccls = {},
 			pyright = {
 				settings = {
 					python = {
