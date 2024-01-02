@@ -1,6 +1,6 @@
 require("options")
 require("autocmds")
+require("indent")
 require("keymaps")
 require("keymaps-terminal")
 require("lazynvim")
-
