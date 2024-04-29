@@ -14,6 +14,15 @@ If the version is old, you may not be able to use the following plugins.
 mv ~/path/to/this/repo ~/.config/nvim
 ```
 
+## Yank Settings
+
+Simple 'vim' package does not support clipboard settings.
+
+```
+sudo apt install vim-gtk
+sudo apt install xclip
+```
+
 ## Plugins
 
 ### numToStr/Comment.nvim

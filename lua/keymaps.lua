@@ -48,6 +48,11 @@ keymap("n", "tt", ":belowright 10new<Return>:terminal<Return>", opts)
 -- Grep
 keymap("n", "gw", "*", opts)
 
+-- Yank
+keymap("n", "d", "\"_d", opts)
+keymap("x", "d", "\"_d", opts)
+keymap("x", "p", "\"_dp", opts)
+
 -- Plugins --
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<Return>", opts)
