@@ -8,6 +8,13 @@ You can install it on the Neovim website.
 
 If the version is old, you may not be able to use the following plugins.
 
+### For Homebrew user
+
+```
+brew install neovim
+brew install --cask font-0xproto-nerd-font
+```
+
 ## How to set
 
 ```
