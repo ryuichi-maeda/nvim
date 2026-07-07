@@ -7,9 +7,9 @@ return {
             ensure_installed = {
                 "cpp",
                 "go",
-                "hcl",
+                "markdown",
+                "markdown_inline",
                 "python",
-                "terraform",
                 "xml",
                 "yaml",
             },
@@ -22,4 +22,3 @@ return {
         })
     end,
 }
-

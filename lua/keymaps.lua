@@ -51,7 +51,7 @@ keymap("n", "gw", "*", opts)
 -- Yank
 keymap("n", "d", "\"_d", opts)
 keymap("x", "d", "\"_d", opts)
-keymap("x", "p", "\"_dP", opts)
+keymap("x", "p", "\"_dp", opts)
 
 -- Plugins --
 -- Telescope

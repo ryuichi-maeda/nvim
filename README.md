@@ -84,6 +84,13 @@ File tree.
 
 Fuzzy finder.
 
+### MeanderingProgrammer/render-markdown.nvim
+
+Render Markdown inside Neovim.
+
+Open a `.md` file and view it in Normal mode.
+You can also control it with `:RenderMarkdown enable` and `:RenderMarkdown disable`.
+
 ### nvim-treesitter/nvim-treesitter
 
 Syntax highlight.
