@@ -7,6 +7,7 @@ return {
 	opts = {
 		servers = {
 			ccls = {},
+			terraformls = {},
 			pyright = {
 				settings = {
 					python = {
