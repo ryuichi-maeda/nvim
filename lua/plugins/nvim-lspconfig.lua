@@ -8,6 +8,7 @@ return {
 		servers = {
 			ccls = {},
 			terraformls = {},
+			yamlls = {},
 			pyright = {
 				settings = {
 					python = {

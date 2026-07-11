@@ -6,6 +6,7 @@ return {
 			python = { "black" },
 			terraform = { "terraform_fmt" },
 			["terraform-vars"] = { "terraform_fmt" },
+			yaml = { "yamlfmt" },
 		},
 		format_on_save = {
 			timeout_ms = 500,
