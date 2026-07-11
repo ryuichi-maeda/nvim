@@ -8,6 +8,11 @@ return {
 			["terraform-vars"] = { "terraform_fmt" },
 			yaml = { "yamlfmt" },
 		},
+		formatters = {
+			yamlfmt = {
+				args = { "-formatter", "retain_line_breaks=true", "-" },
+			},
+		},
 		format_on_save = {
 			timeout_ms = 500,
 			lsp_fallback = true,
