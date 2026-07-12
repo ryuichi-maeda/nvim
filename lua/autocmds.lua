@@ -3,6 +3,16 @@
 -- Create autocommand
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Neovim's builtin ".tf" detection falls back to filetype "tf" (not
+-- "terraform") when the buffer is still empty (e.g. right after :e on a
+-- brand new file), so newly created files aren't highlighted until
+-- something forces re-detection. Always treat ".tf" as terraform.
+vim.filetype.add({
+	extension = {
+		tf = "terraform",
+	},
+})
+
 -- On save
 autocmd("BufWritePre", {
 	pattern = "*",
