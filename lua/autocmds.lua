@@ -52,3 +52,31 @@ autocmd("BufEnter", {
 	pattern = "*",
 	command = "set fo-=c fo-=r fo-=o",
 })
+
+-- Markdown editing helpers (buffer-local, <leader>m prefix to avoid clashes)
+autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		local map = function(mode, lhs, rhs, desc)
+			vim.keymap.set(mode, lhs, rhs, { buffer = true, silent = true, desc = "Markdown: " .. desc })
+		end
+
+		-- Visual mode: wrap the selection
+		-- (c deletes the selection into the unnamed register, then we retype it wrapped)
+		map("x", "<leader>mb", 'c**<C-r>"**<Esc>', "Bold")
+		map("x", "<leader>mi", 'c*<C-r>"*<Esc>', "Italic")
+		map("x", "<leader>mc", 'c`<C-r>"`<Esc>', "Inline code")
+		map("x", "<leader>ms", 'c~~<C-r>"~~<Esc>', "Strikethrough")
+		-- Link: [selection](|) with cursor left inside () in insert mode to type the URL
+		map("x", "<leader>ml", 'c[<C-r>"]()<Left>', "Link")
+
+		-- Normal mode: operate on the word under the cursor
+		map("n", "<leader>mb", 'viwc**<C-r>"**<Esc>', "Bold word")
+		map("n", "<leader>mi", 'viwc*<C-r>"*<Esc>', "Italic word")
+		map("n", "<leader>mc", 'viwc`<C-r>"`<Esc>', "Inline code word")
+		map("n", "<leader>ml", 'viwc[<C-r>"]()<Left>', "Link word")
+
+		-- Table mode toggle (vim-table-mode)
+		map("n", "<leader>mt", "<cmd>TableModeToggle<cr>", "Toggle table mode")
+	end,
+})
