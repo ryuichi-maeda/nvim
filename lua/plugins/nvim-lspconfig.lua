@@ -36,6 +36,12 @@ return {
 		},
 	},
 	config = function(_, opts)
+		-- Show diagnostics inline (virtual text) and sort by severity
+		vim.diagnostic.config({
+			virtual_text = true,
+			severity_sort = true,
+		})
+
 		local servers = opts.servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 

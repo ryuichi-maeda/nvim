@@ -89,6 +89,16 @@ end
 
 vim.keymap.set({ "n", "v" }, "<leader>yr", copy_file_reference, { desc = "Copy file:line reference" })
 
+-- LSP Diagnostics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1 })
+end, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1 })
+end, { desc = "Next diagnostic" })
+
 -- Plugins --
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<Return>", "Find files")
