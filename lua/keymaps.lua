@@ -51,7 +51,7 @@ keymap("n", "gw", "*", "Search word under cursor")
 -- Yank
 keymap("n", "d", '"_d', "Delete without yank")
 keymap("x", "d", '"_d', "Delete without yank")
-keymap("x", "p", '"_dP', "Paste without yank")
+keymap("x", "p", "P", "Paste without yank")
 
 -- Copy file:line reference (e.g. path/to/file.ts:42 or :42-57 in visual mode)
 local function copy_file_reference()
