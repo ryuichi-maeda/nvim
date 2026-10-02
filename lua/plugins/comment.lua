@@ -40,7 +40,13 @@ return {
 			extra = true,
 		},
 		---Function to call before (un)comment
-		pre_hook = nil,
+		---Neovim 0.12 の get_parser はパーサー未インストール時に nil を返し、Comment.nvim が落ちるため回避する
+		pre_hook = function(ctx)
+			local ok, parser = pcall(vim.treesitter.get_parser, 0)
+			if not ok or not parser then
+				return require("Comment.ft").get(vim.bo.filetype, ctx.ctype) or vim.bo.commentstring
+			end
+		end,
 		---Function to call after (un)comment
 		post_hook = nil,
 	},
