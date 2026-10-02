@@ -7,6 +7,7 @@ return {
         local ts = require("nvim-treesitter")
 
         local ensure_installed = {
+            "bash",
             "cpp",
             "go",
             "hcl",
@@ -21,7 +22,7 @@ return {
 
         -- highlight / indent are enabled per-buffer on the main branch
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "cpp", "go", "hcl", "markdown", "python", "xml", "yaml" },
+            pattern = { "sh", "cpp", "go", "hcl", "markdown", "python", "xml", "yaml" },
             callback = function()
                 pcall(vim.treesitter.start)
                 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
