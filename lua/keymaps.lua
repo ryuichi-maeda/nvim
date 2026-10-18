@@ -110,6 +110,22 @@ keymap("n", "<leader>fh", ":Telescope help_tags<Return>", "Help tags")
 keymap("n", "<leader>nt", ":Neotree toggle<Return>", "Toggle Neo-tree")
 keymap("n", "<leader>nr", ":Neotree focus<Return>:execute 'normal R'<Return>", "Refresh Neo-tree")
 
+-- Bufferline
+keymap("n", "<S-h>", ":BufferLineCyclePrev<Return>", "Previous buffer tab")
+keymap("n", "<S-l>", ":BufferLineCycleNext<Return>", "Next buffer tab")
+
+-- Close buffer tab without closing the window
+-- (plain :bd closes the window, and neo-tree's close_if_last_window then quits nvim)
+vim.keymap.set("n", "<leader>bd", function()
+	local buf = vim.api.nvim_get_current_buf()
+	if #vim.fn.getbufinfo({ buflisted = 1 }) > 1 then
+		vim.cmd("bprevious")
+	else
+		vim.cmd("enew")
+	end
+	vim.cmd("bdelete " .. buf)
+end, { desc = "Close buffer tab" })
+
 -- Gitsigns
 keymap("n", "<leader>hs", ":Gitsigns stage_hunk<Return>", "Stage hunk")
 keymap("v", "<leader>hs", ":Gitsigns stage_hunk<Return>", "Stage hunk")
