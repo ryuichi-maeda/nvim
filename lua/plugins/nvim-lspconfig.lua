@@ -45,17 +45,20 @@ return {
 		local servers = opts.servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-		local function on_attach(_, bufnr)
-			local options = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, options)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, options)
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, options)
-		end
+		-- Use LspAttach instead of on_attach: server configs that define their own
+		-- on_attach (e.g. lspconfig's pyright) override the one set via "*"
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				local options = { noremap = true, silent = true, buffer = args.buf }
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, options)
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, options)
+				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, options)
+			end,
+		})
 
 		-- Defaults applied to every server (Neovim 0.11+ vim.lsp.config API)
 		vim.lsp.config("*", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 		})
 
 		for server, server_opts in pairs(servers) do
