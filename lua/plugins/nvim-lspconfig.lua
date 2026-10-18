@@ -7,6 +7,7 @@ return {
 	opts = {
 		servers = {
 			ccls = {},
+			gopls = {},
 			terraformls = {},
 			yamlls = {},
 			pyright = {
